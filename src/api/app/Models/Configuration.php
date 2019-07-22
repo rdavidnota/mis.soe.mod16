@@ -11,7 +11,7 @@ class Configuration extends BaseModel
     ];
 
     protected $casts = [
-        'exchange_rate' => 'decimal',
+        'exchange_rate' => 'float',
     ];
 
 }

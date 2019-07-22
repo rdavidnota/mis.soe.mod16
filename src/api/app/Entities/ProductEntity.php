@@ -13,5 +13,5 @@ class ProductEntity
     public $ProductLineId;
 
     public $ProductLine;
-
+    public $Sales;
 }

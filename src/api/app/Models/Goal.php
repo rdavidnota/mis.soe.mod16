@@ -14,7 +14,7 @@ class Goal extends BaseModel
     ];
 
     protected $casts = [
-        'mount' => 'decimal',
+        'mount' => 'float',
         'type_goal_id' => 'integer',
     ];
 
@@ -32,4 +32,10 @@ class Goal extends BaseModel
     {
         return $this->hasMany('App\Models\SubsidiaryGoal');
     }
+
+    public function bonuses()
+    {
+        return $this->hasMany('App\Models\Bonus');
+    }
+
 }

@@ -12,7 +12,10 @@ class GoalEntity
     public $Mount;
     public $TypeGoalId;
 
+    public $Current;
+
     public $TypeGoal;
     public $ProductLineGoals;
     public $SubsidiaryGoals;
+    public $Bonuses;
 }

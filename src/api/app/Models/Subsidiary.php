@@ -10,10 +10,12 @@ class Subsidiary extends BaseModel
         'name',
         'description',
         'percentage_goal',
+        'goal',
     ];
 
     protected $casts = [
-        'percentage_goal' => 'decimal',
+        'percentage_goal' => 'float',
+        'goal' => 'float',
     ];
 
     public function seller()

@@ -11,5 +11,5 @@ class ProductLineEntity
     public $Description;
 
     public $Products;
-    public $ProductLineGoal;
+    public $ProductLineGoals;
 }

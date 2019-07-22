@@ -1,4 +1,5 @@
 FROM php:7.2-fpm-alpine AS base
+
 # Instalamos dependencias
 RUN apk update
 RUN apk add procps

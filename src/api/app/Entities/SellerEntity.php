@@ -14,4 +14,5 @@ class SellerEntity
     public $SubsidiaryId;
 
     public $Subsidiary;
+    public $Sales;
 }
