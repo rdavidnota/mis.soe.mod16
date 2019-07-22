@@ -10,7 +10,7 @@ class Product extends BaseModel
         'name',
         'description',
         'price',
-        'coordinate_y',
+        'product_line_id',
     ];
 
     protected $casts = [

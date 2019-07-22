@@ -6,15 +6,13 @@ services:
     tty: true
     environment:
       MYSQL_ROOT_PASSWORD: mercado.nota
-      MYSQL_DATABASE: mismod16
-      MYSQL_USER: mismod16
-      MYSQL_PASSWORD: test.mismod16
+      MYSQL_DATABASE: mismod
+      MYSQL_USER: mismod
+      MYSQL_PASSWORD: test.mismod
     ports:
       - 3306:3306
     volumes:
       - mysql_data:/var/lib/mysql
-    networks:
-      - api-network
   nginx_api:
     build:
       context: ./nginx_api
@@ -27,8 +25,6 @@ services:
       - ./nginx_api/logs:/var/log/nginx/
     ports:
       - 8600:80
-    networks:
-      - api-network
   api:
     build:
       context: ./src/api
@@ -39,12 +35,6 @@ services:
       - type: bind
         source: ./src/api
         target: /var/www/api
-    networks:
-      - api-network
-#Docker Networks
-networks:
-  api-network:
-    driver: bridge
 #Docker Volumes
 volumes:
   mysql_data:

@@ -13,8 +13,8 @@ class AddForeignKeysProductLineGoals extends Migration
      */
     public function up()
     {
-        Schema::table('subsidiary_goals', function (Blueprint $table) {
-            $table->foreign('product_line_id')->references('id')->on('subsidiaries');
+        Schema::table('product_line_goals', function (Blueprint $table) {
+            $table->foreign('product_line_id')->references('id')->on('product_lines');
             $table->foreign('goal_id')->references('id')->on('goals');
         });
     }
@@ -26,7 +26,7 @@ class AddForeignKeysProductLineGoals extends Migration
      */
     public function down()
     {
-        Schema::table('subsidiary_goals', function (Blueprint $table) {
+        Schema::table('product_line_goals', function (Blueprint $table) {
             $table->dropForeign(['product_line_id']);
             $table->dropForeign(['goal_id']);
         });

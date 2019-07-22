@@ -25,7 +25,7 @@ class AddForeignKeysGoals extends Migration
      */
     public function down()
     {
-        Schema::table('subsidiary_goals', function (Blueprint $table) {
+        Schema::table('goals', function (Blueprint $table) {
             $table->dropForeign(['type_goal_id']);
         });
     }
