@@ -1,0 +1,50 @@
+version: "3.7"
+services:
+  mysql:
+    image: mysql:5
+    restart: unless-stopped
+    tty: true
+    environment:
+      MYSQL_ROOT_PASSWORD: mercado.nota
+      MYSQL_DATABASE: mismod16
+      MYSQL_USER: mismod16
+      MYSQL_PASSWORD: test.mismod16
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - api-network
+  nginx_api:
+    build:
+      context: ./nginx_api
+    restart: unless-stopped
+    depends_on:
+      - api
+      - mysql
+    volumes:
+      - ./src/api/public:/var/www/api/public
+      - ./nginx_api/logs:/var/log/nginx/
+    ports:
+      - 8600:80
+    networks:
+      - api-network
+  api:
+    build:
+      context: ./src/api
+    restart: unless-stopped
+    depends_on:
+      - mysql
+    volumes:
+      - type: bind
+        source: ./src/api
+        target: /var/www/api
+    networks:
+      - api-network
+#Docker Networks
+networks:
+  api-network:
+    driver: bridge
+#Docker Volumes
+volumes:
+  mysql_data:
